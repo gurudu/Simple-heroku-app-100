@@ -2,7 +2,8 @@ const express = require('express');
 let app = express();
 const hbs = require('hbs');
 const fs = require('fs');
-
+const port = process.env.PORT || 3000;//process is an object that stores 
+//all our environment variables as key , value pairs
 const ownModule = require('./public/ownModule');
 hbs.registerPartials(__dirname+'/views/partials');
 
@@ -58,8 +59,8 @@ app.get('/contact',(req,res) => {
   });
 
 });
-app.listen(3001,()=>{
-	console.log('server is running on port 3000');
+app.listen(port,()=>{
+	console.log('server is running on port ${3000}');
 });
 console.log(ownModule.age);
 console.log(ownModule.add(5,2));
